@@ -1,16 +1,18 @@
 import React, {useEffect, useState} from 'react'
 import {useParams} from "react-router-dom";
-import {useDispatch, useSelector} from "react-redux"
+import {useDispatch, useSelector} from "react-redux";
 import currencyFormatter from "currency-formatter";
 import {BsDash, BsPlus} from "react-icons/bs";
+import {getProduct} from '../../redux/actions/Products'
 const Details = () => {
+    const dispatch = useDispatch();
     const [quantity, setQuantity] = useState(1);
     const {id} = useParams();
-    const dispatch = useDispatch();
-    const {product} = useSelector(state => state.ProductsReducer);
     useEffect(() => {
-       dispatch({type: 'PRODUCT', id})
+       dispatch(getProduct(id))
     }, [id])
+    const {product, loading, error} = useSelector(state => state.products);
+    console.log(product);
     const decQuantity = () => {
         if(quantity > 1) {
             setQuantity(quantity-1)
@@ -21,7 +23,7 @@ const Details = () => {
             <div className="row">
                 <div className="col-6">
                 <div className="details__image">
-                    <img src={`/images/${product.image}`} alt=""/>
+                    <img src={product.image} alt=""/>
                 </div>
                 </div>
                 <div className="col-6">
