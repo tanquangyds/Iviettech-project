@@ -10,9 +10,9 @@ const Details = () => {
     const {id} = useParams();
     useEffect(() => {
        dispatch(getProduct(id))
-    }, [id])
+    }, [])
     const {product, loading, error} = useSelector(state => state.products);
-    console.log(product);
+
     const decQuantity = () => {
         if(quantity > 1) {
             setQuantity(quantity-1)
@@ -23,7 +23,7 @@ const Details = () => {
             <div className="row">
                 <div className="col-6">
                 <div className="details__image">
-                    <img src={product.image} alt=""/>
+                    <img src={product} alt=""/>
                 </div>
                 </div>
                 <div className="col-6">
