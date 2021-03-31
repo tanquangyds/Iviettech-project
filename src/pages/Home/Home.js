@@ -20,7 +20,7 @@ const Home = () => {
                         <div className="col-3" key={product.id}>
                             <div className="product">
                                 <div className="product__img">
-                                    <Link to={`/details/${product.id}`}><img src={product.image} alt="image name"/></Link>
+                                    <Link to={`/details/${product.id}`}><img src={product.poster[0].url} alt="image name"/></Link>
                                 </div>
                                 <div className="product__name">
                                     {product.name}
