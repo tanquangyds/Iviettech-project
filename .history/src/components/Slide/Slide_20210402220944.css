@@ -1,0 +1,16 @@
+.slick-prev:before, .slick-next:before {
+  
+    color: red!important;
+   }
+
+   .details__image {
+    width: 70%!important;
+
+   }
+   .slick-dots {
+    bottom: -10px!important;
+    display: flex!important;
+    border:1px solid green;
+    justify-content:space-between!important;
+    height:auto
+}
