@@ -39,7 +39,7 @@ const Details = () => {
           <div className="details__p">
             <h4>Thông tin sản phẩm</h4>
             <p>
-              mã sản phẩm: <span>{product._id}</span>
+              mã sản phẩm: <span>{product.id}</span>
             </p>
             <p>
               nhà xản xuất: <span>{product.key}</span>
@@ -71,10 +71,10 @@ const Details = () => {
           </div>
           <div className="details__prices">
             <span className="details__actaul">
-              {currencyFormatter.format(product.price, { code: "USD" })}
+              {currencyFormatter.format(product.price, { code: "VND" })}
             </span>
             <span className="details__discount">
-              {currencyFormatter.format(product.discountPrice, { code: "USD" })}
+              {currencyFormatter.format(product.discountPrice, { code: "VND" })}
             </span>
           </div>
           <div className="details__info">
@@ -101,7 +101,9 @@ const Details = () => {
             </div>
           </div>
         </div>
-        <div className="product__description row">
+      </div>
+      <div className="row">
+        <div className="product__description">
           <h2>Mô tả sản phẩm</h2>
           {product.description}
         </div>
