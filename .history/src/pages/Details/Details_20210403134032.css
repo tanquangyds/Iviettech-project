@@ -1,0 +1,21 @@
+.product__description{
+    border: 1px solid red;
+    margin: 10px 0;
+    border: 1px solid grey;
+    border-radius: 5px;
+    padding: 20px 10px;
+    box-shadow:1px 1px;
+}
+.details__p{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-transform: capitalize;
+}
+.details__p p{
+    font-weight: bold;
+    margin: 10px 0;
+}
+.details__p p span{
+    font-weight: normal;
+}

@@ -1,0 +1,7 @@
+.avatar__img{
+    width:100px;
+}
+.avatar__img img{
+    width: 100%;
+    height: auto;
+} 

@@ -1,0 +1,27 @@
+.slick-prev:before, .slick-next:before {
+  
+    color: green!important;
+   }
+
+
+.slick-dots li {
+
+    width: 100px!important;
+    height: auto !important;
+    transition:all 0.7s!important;
+}
+.slick-dots li:hover{
+    border:2px solid red!important;
+
+}
+.details__image {
+    width: 80%!important;
+    border: 1px solid;
+ 
+}
+.details__image img{
+    border: 1px solid green;
+}
+.slick-dots {
+    bottom: -100px!important;
+}

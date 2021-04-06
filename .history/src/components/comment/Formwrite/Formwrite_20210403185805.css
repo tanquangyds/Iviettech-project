@@ -1,0 +1,17 @@
+.formwrite{
+    display:flex;
+    flex-direction: column;
+    padding:0 30px
+}
+.avatar{
+    display:flex;
+    flex-direction: column;
+    justify-content:center;
+}
+.avatar__img{
+    width:100px;
+}
+.avatar__img img{
+    width: 100%;
+    height: auto;
+} 
