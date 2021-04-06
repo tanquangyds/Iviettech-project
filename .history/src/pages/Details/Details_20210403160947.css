@@ -1,0 +1,31 @@
+.product__description{
+    border: 1px solid red;
+    margin: 10px 0;
+    border: 1px solid grey;
+    border-radius: 5px;
+    padding: 20px 10px;
+    box-shadow:1px 1px;
+}
+.details__p{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-transform: capitalize;
+}
+.details__p p{
+    font-weight: 600;
+    margin: 10px 0;
+}
+.details__p p span{
+    font-weight: normal;
+}
+.details__freeship{
+    border: 1px solid red;
+    display: flex;
+    align-items: center;
+    justify-content:start;
+}
+.details__freeship img{
+    width: 10%;
+    background-color: aquamarine;
+}

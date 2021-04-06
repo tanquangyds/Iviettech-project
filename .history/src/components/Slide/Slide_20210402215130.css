@@ -1,0 +1,19 @@
+.slick-prev:before, .slick-next:before {
+  
+    color: green!important;
+   }
+
+
+.slick-dots li {
+
+    width: 100px!important;
+    border:1px solid red!important;
+
+}
+.details__image {
+    width: 80%!important;
+
+}
+.slick-dots {
+    bottom: -100px!important;
+}
