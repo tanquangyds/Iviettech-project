@@ -1,21 +1,21 @@
 import {BrowserRouter as Router, Route} from "react-router-dom"
 import {Provider} from "react-redux";
+import { createBrowserHistory } from 'history';
 import store from "./redux/store";
-// import './assets/scss/index.scss';
+import { AuthProvider } from './contexts/AuthContext';
+import routes, { renderRoutes } from './routes';
 import './App.css';
-import Nav from "./pages/Nav/Nav"
-import Home from "./pages/Home/Home"
-import Cart from "./pages/Cart/Cart"
-import Details from "./pages/Details/Details";
+import Nav from './components/Nav';
 
+const history = createBrowserHistory();
 function App() {
   return (
     <Router>
      <Provider store={store}>
-        <Nav />
-        <Route path="/" exact component={Home} />
-        <Route path="/cart" exact component={Cart} />
-        <Route path="/details/:id" exact component={Details} />
+        <AuthProvider>
+          <Nav/>
+          <Router history={history} >{renderRoutes(routes)}</Router>
+        </AuthProvider>
       </Provider>
     </Router>
   );

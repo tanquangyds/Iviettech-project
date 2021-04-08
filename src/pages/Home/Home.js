@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import Header from "../Header/Header";
+import Header from "../../components/Header";
 import {useSelector, useDispatch} from "react-redux";
 import currencyFormatter from "currency-formatter";
 import {Link} from "react-router-dom";
