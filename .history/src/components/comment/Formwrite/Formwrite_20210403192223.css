@@ -1,0 +1,38 @@
+.formwrite{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    padding:10px 10px;
+    border:1px solid grey;
+    border-radius: 5px;
+    box-shadow: 1px 1px;
+    margin-bottom: 30px;
+}
+.avatar{
+    align-self: flex-start;
+    display:flex;
+    width: 30%;
+    flex-direction: column;
+    justify-content:center;
+    margin-bottom: 10px;
+}
+.comment button{
+    padding:10px;
+    text-transform: capitalize;
+}
+textarea{
+    width: 100%;
+    outline: none;
+    margin-bottom: 20px;
+}
+.avatar__img{
+    width:100px;
+    border-radius: 50%;
+    border: 1px solid;
+    overflow: hidden;
+}
+.avatar__img img{
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+} 
