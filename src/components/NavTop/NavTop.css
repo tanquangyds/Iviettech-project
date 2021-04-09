@@ -1,0 +1,10 @@
+.nav__right {
+  display: flex;
+}
+.btn-login {
+  margin-right: 1rem;
+  cursor: pointer;
+}
+.cart-box {
+  cursor: pointer;
+}

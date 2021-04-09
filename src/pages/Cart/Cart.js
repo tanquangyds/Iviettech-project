@@ -3,12 +3,14 @@ import { useSelector, useDispatch } from "react-redux";
 import currencyFormatter from "currency-formatter";
 import { BsDash, BsPlus } from "react-icons/bs";
 import { BsReverseBackspaceReverse } from "react-icons/bs";
+import { useHistory } from "react-router-dom";
+import { ROUTES } from '../../constants/routes';
 const Cart = () => {
   const { products, totalQuantities, totalPrice } = useSelector(
     (state) => state.cart
   );
   const dispatch = useDispatch();
-
+  const history = useHistory();
   return (
     <div className="cart">
       <div className="container">
@@ -102,7 +104,7 @@ const Cart = () => {
                         {currencyFormatter.format(totalPrice, { code: "USD" })}
                       </div>
                     </div>
-                    <button type="button" className="checkout">
+                    <button type="button" className="checkout" onClick={() => history.push(ROUTES.CHECKOUT)}>
                       Checkout
                     </button>
                   </div>
