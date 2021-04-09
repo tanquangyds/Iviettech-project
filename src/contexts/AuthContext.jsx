@@ -1,14 +1,9 @@
 /* eslint-disable import/order */
 /* eslint-disable object-shorthand */
-import React, { createContext, useEffect, useReducer, ReactNode } from 'react';
-import { useHistory } from 'react-router-dom';
-import { ROUTES } from '../common/constants/routes';
-import axios from 'axios';
-
-
-
-
-
+import React, { createContext, useEffect, useReducer, ReactNode } from "react";
+import { useHistory } from "react-router-dom";
+import { ROUTES } from "../constants/routes";
+import axios from "axios";
 
 const initialAuthState = {
   isAuthenticated: false,
@@ -18,7 +13,7 @@ const initialAuthState = {
 
 const reducer = (state, action) => {
   switch (action.type) {
-    case 'INITIALIZE': {
+    case "INITIALIZE": {
       const { isAuthenticated, user } = action.payload;
 
       return {
@@ -28,7 +23,7 @@ const reducer = (state, action) => {
         user,
       };
     }
-    case 'LOGIN': {
+    case "LOGIN": {
       const { user, isAuthenticated } = action.payload;
 
       return {
@@ -37,7 +32,7 @@ const reducer = (state, action) => {
         user,
       };
     }
-    case 'LOGOUT': {
+    case "LOGOUT": {
       return {
         ...state,
         isAuthenticated: false,
@@ -66,7 +61,7 @@ export const AuthProvider = (props) => {
     try {
       // To do something.
       dispatch({
-        type: 'LOGIN',
+        type: "LOGIN",
         payload: {
           user: {}, // TODO: pass user data from login function above
           isAuthenticated: true,
@@ -80,9 +75,9 @@ export const AuthProvider = (props) => {
   const logout = async () => {
     try {
       //
-      dispatch({ type: 'LOGOUT' });
+      dispatch({ type: "LOGOUT" });
     } catch (error) {
-      console.log('error signing out: ', error);
+      console.log("error signing out: ", error);
     }
   };
 
@@ -97,18 +92,28 @@ export const AuthProvider = (props) => {
   useEffect(() => {
     const initialize = async () => {
       try {
-        // TODO: check to get user from cookies
-        throw new Error('Chưa xác thực')
-        dispatch({
-          type: 'INITIALIZE',
-          payload: {
-            user: {},
-            isAuthenticated: true,
-          },
-        });
+        const User = await localStorage.getItem("UserInfo");
+        console.log(User);
+        if (User) {
+          dispatch({
+            type: "INITIALIZE",
+            payload: {
+              user: {},
+              isAuthenticated: true,
+            },
+          })
+        } else {
+          dispatch({
+            type: "INITIALIZE",
+            payload: {
+              user: null,
+              isAuthenticated: false,
+            },
+          })
+        }
       } catch (err) {
         dispatch({
-          type: 'INITIALIZE',
+          type: "INITIALIZE",
           payload: {
             user: null,
             isAuthenticated: false,
