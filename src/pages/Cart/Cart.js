@@ -1,16 +1,32 @@
-import React from "react";
+// import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import currencyFormatter from "currency-formatter";
 import { BsDash, BsPlus } from "react-icons/bs";
 import { BsReverseBackspaceReverse } from "react-icons/bs";
-import { useHistory } from "react-router-dom";
-import { ROUTES } from '../../constants/routes';
+import React, { useState } from "react";
+
+import "antd/dist/antd.css";
+
+import Modalpayment from '../../components/Modalpayment/Modalpayment.jsx'
+
+
 const Cart = () => {
   const { products, totalQuantities, totalPrice } = useSelector(
     (state) => state.cart
   );
   const dispatch = useDispatch();
-  const history = useHistory();
+  //drawer
+
+  const [visible, setVisible] = useState(false);
+  const showDrawer = () => {
+    setVisible(true);
+  };
+
+   const onClose = () => {
+    setVisible(false);
+  };
+
+  //-----------------------------
   return (
     <div className="cart">
       <div className="container">
@@ -104,9 +120,17 @@ const Cart = () => {
                         {currencyFormatter.format(totalPrice, { code: "USD" })}
                       </div>
                     </div>
-                    <button type="button" className="checkout" onClick={() => history.push(ROUTES.CHECKOUT)}>
-                      Checkout
+                    <button
+                      type="button"
+                      className="checkout"
+                      onClick={showDrawer}
+                    >
+                      check out
+                      <div></div>
                     </button>
+                    <div className="group-check-out">
+                      <Modalpayment checkclose={onClose} checkvisible={visible} />
+                    </div>
                   </div>
                 </div>
               </div>
