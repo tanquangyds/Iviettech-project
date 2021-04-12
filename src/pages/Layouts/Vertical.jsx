@@ -1,5 +1,7 @@
 import React, { PropsWithChildren, Suspense } from 'react';
-import Nav from '../../components/NavTop/NavTop';
+import LeftSidebar from '../../components/LeftSidebar/LeftSidebar';
+import Nav from '../../components/Header/Header';
+import './Vertical.css';  
 
 const loading = () => <div className="text-center" />;
 
@@ -11,7 +13,10 @@ const VerticalLayout = (props) => {
           <div className="content">
             <div>
               <Nav/>
-              <Suspense fallback={loading()}>{props.children}</Suspense>
+              <div className="box-container">
+                <LeftSidebar/>
+                <Suspense fallback={loading()}>{props.children}</Suspense>
+              </div>
             </div>
           </div>
         </div>

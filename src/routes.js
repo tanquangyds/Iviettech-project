@@ -54,6 +54,13 @@ const routes = [
     component: lazy(() => import('./pages/Home/Home')),
   },
   {
+    title: "Search",
+    exact: true,
+    path: ROUTES.SEARCH,
+    layout: VerticalLayout,
+    component: lazy(() => import('./pages/Search/index')),
+  },
+  {
     title: "detail",
     exact: true,
     path: ROUTES.DETAIL,
