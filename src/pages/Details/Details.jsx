@@ -9,16 +9,24 @@ import Slide from "../../components/Slide/Slide";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import Comment from "../../components/comment/Comment"
 import ReactHtmlParser from "react-html-parser";
+import { Empty, Tooltip, message, Drawer, Form, Input, Select, InputNumber } from 'antd';
+
+
+
 
 const Details = () => {
   const dispatch = useDispatch();
   const [quantity, setQuantity] = useState(1);
+
+
+
+//----------------------------------
   const { id } = useParams();
   useEffect(() => {
     dispatch(getProduct(id));
   }, []);
   const { product, loading, error } = useSelector((state) => state.products);
-  console.log(product);
+  console.log(product.size);
   //add discount
   const discount = 0.1;
   product.discountPrice = product.price * (1 - discount);
@@ -71,6 +79,7 @@ const Details = () => {
               Miễn phí giao hàng (tối đa 30k)cho đơn hàng từ 249k Xem chi tiết
             </p>
           </div>
+         
           <div className="details__prices">
             <span className="details__actaul">
               {currencyFormatter.format(product.price, { code: "VND" })}
@@ -113,6 +122,7 @@ const Details = () => {
       <div className="row">
         <Comment/>
       </div>
+
     </div>
   );
 };
