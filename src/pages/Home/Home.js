@@ -1,9 +1,9 @@
-import React, { useEffect } from "react";
-import Header from "../../components/Header";
-import { useSelector, useDispatch } from "react-redux";
+import React, { useEffect } from 'react';
+import {useSelector, useDispatch} from "react-redux";
 import currencyFormatter from "currency-formatter";
 import { Link } from "react-router-dom";
 import { getProducts } from "../../redux/actions/Products";
+import Banner from '../../components/Banner/index';
 const Home = () => {
   const dispatch = useDispatch();
   useEffect(() => {
@@ -13,8 +13,8 @@ const Home = () => {
   console.log(products);
   return (
     <div>
-      <Header />
       <div className="container">
+        <Banner/>
         <div className="row">
           {products.map((product) => (
             <div className="col-3" key={product.id}>
